@@ -209,11 +209,21 @@
         <!-- Video 2: controller comparison (Fig 10) -->
         <figure id="video-compare">
           <span class="vlabel">Video 2 &middot; Controller comparison</span>
-          <div class="placeholder">
-            <div class="big">Coming soon &mdash; multi-controller comparison</div>
-            <div>Animated version of Fig.&nbsp;10: DOB-MPC-CBF vs. baseline controllers on the same trials.
-            Details to be finalized.</div>
+          <div class="media">
+            <video controls preload="metadata" poster="assets/fig10_compare_poster.png">
+              <source src="assets/fig10_compare.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
+          <figcaption>
+            Animated companion to Fig.&nbsp;10 (cradle-fixed frame): the proposed <b>DOB-MPC-CBF</b> against three
+            baselines&mdash;<b>MPC-CBF</b>, <b>DOB-MPC</b>, and <b>ALOS-CBF</b>&mdash;on the same five Monte-Carlo trials.
+            Runs appear one at a time, with a USV silhouette riding along each path in all four panels at once, so a
+            given trial can be matched across controllers. Solid line with &#9733;: success; dashed line with &times;:
+            safety violation. Run&nbsp;1 is easy (all recover); Runs&nbsp;2&ndash;4 each isolate one ingredient
+            (the barrier, the tracking layer, the robust-adaptive margin); Run&nbsp;5 is the hardest, where only the
+            proposed controller threads the cradle.
+          </figcaption>
         </figure>
 
         <!-- Video 3: pool experiment side-by-side -->
