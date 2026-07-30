@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Safe USV Recovery — DOB-MPC with Control Barrier Functions</title>
+<meta name="description" content="Project page and supplementary videos for Safe USV Recovery Using Disturbance-Aware Predictive Control with Control Barrier Functions." />
+<style>
+  :root{
+    --bg:#ffffff; --fg:#1a1d24; --muted:#5c6470; --line:#e6e8ec;
+    --card:#f7f8fa; --accent:#1b5fa6; --accent-soft:#eaf1f9;
+    --maxw:960px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0f1319; --fg:#e8eaee; --muted:#9aa3b0; --line:#232a33;
+      --card:#151b23; --accent:#5aa0e6; --accent-soft:#16222f;
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--fg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.65; font-size:17px; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+  a{color:var(--accent); text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* Header */
+  header{padding:64px 0 32px; text-align:center; border-bottom:1px solid var(--line)}
+  h1{font-size:2.05rem; line-height:1.25; margin:0 0 6px; letter-spacing:-.01em}
+  h1 .sub{display:block; font-size:1.15rem; font-weight:600; color:var(--muted); margin-top:8px}
+  .venue{color:var(--muted); font-size:.95rem; margin:14px 0 0}
+  .authors{margin:22px auto 4px; max-width:760px; font-size:1.02rem}
+  .authors a{color:var(--fg); font-weight:600}
+  .authors sup{color:var(--accent); font-weight:700}
+  .affil{color:var(--muted); font-size:.9rem; margin:6px auto 0; max-width:760px}
+  .corr{color:var(--muted); font-size:.85rem; margin-top:8px}
+
+  /* Buttons */
+  .links{display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:26px 0 4px}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--fg); color:var(--bg); padding:9px 18px; border-radius:999px;
+    font-size:.92rem; font-weight:600; transition:transform .06s ease, opacity .15s ease;
+  }
+  .btn:hover{opacity:.88; text-decoration:none; transform:translateY(-1px)}
+  .btn.ghost{background:transparent; color:var(--fg); border:1px solid var(--line)}
+  .btn .ico{font-size:1.05em; line-height:1}
+
+  /* Sections */
+  section{padding:48px 0; border-bottom:1px solid var(--line)}
+  h2{font-size:1.5rem; margin:0 0 6px; letter-spacing:-.01em}
+  .lead{color:var(--muted); margin:0 0 26px; font-size:1rem}
+  p.body{margin:0 0 16px}
+  .abstract{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:26px 28px}
+  .abstract p{margin:0; text-align:justify}
+
+  /* Figure / video cards */
+  figure{margin:0}
+  .media{
+    border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--card);
+  }
+  .media img, .media video{display:block; width:100%; height:auto}
+  figcaption{color:var(--muted); font-size:.92rem; margin-top:12px; padding:0 2px}
+  figcaption b{color:var(--fg)}
+  .vlabel{
+    display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.06em;
+    text-transform:uppercase; color:var(--accent); background:var(--accent-soft);
+    padding:4px 10px; border-radius:6px; margin-bottom:12px;
+  }
+  .stack{display:grid; gap:40px}
+
+  /* Placeholder */
+  .placeholder{
+    border:1.5px dashed var(--line); border-radius:14px; background:var(--card);
+    padding:44px 28px; text-align:center; color:var(--muted);
+  }
+  .placeholder .big{font-size:1.05rem; font-weight:600; color:var(--fg); margin-bottom:6px}
+
+  /* Highlights grid */
+  .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:8px}
+  .cell{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:20px}
+  .cell .num{font-size:1.7rem; font-weight:700; color:var(--accent); line-height:1.1}
+  .cell .cap{font-size:.9rem; color:var(--muted); margin-top:4px}
+  @media (max-width:640px){ .grid{grid-template-columns:1fr} h1{font-size:1.7rem} }
+
+  /* BibTeX */
+  pre{
+    background:var(--card); border:1px solid var(--line); border-radius:12px;
+    padding:18px 20px; overflow-x:auto; font-size:.86rem; line-height:1.55;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; color:var(--fg);
+  }
+  footer{padding:34px 0 60px; text-align:center; color:var(--muted); font-size:.86rem}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Safe USV Recovery Using Disturbance-Aware Predictive Control
+      <span class="sub">with Control Barrier Functions</span>
+    </h1>
+    <p class="venue">Manuscript under review &middot; IEEE Transactions on Control Systems Technology</p>
+
+    <p class="authors">
+      Kiyong Park<sup>1</sup>, Changyu Lee<sup>2</sup>, Dong-Hoon Kim<sup>3</sup>,
+      Woong-Ki Lee<sup>3</sup>, Ji-Wan Kim<sup>3</sup>, Jun-Hyuk Choi<sup>3</sup>,
+      and Jinhwan Kim<sup>1,&#9993;</sup>
+    </p>
+    <p class="affil">
+      <sup>1</sup>Dept. of Mechanical Engineering, KAIST &nbsp;&middot;&nbsp;
+      <sup>2</sup>Dept. of Mechanical and Automotive Engineering, Kongju National University &nbsp;&middot;&nbsp;
+      <sup>3</sup>LIGDnA, Republic of Korea
+    </p>
+    <p class="corr">&#9993; Corresponding author: Jinhwan Kim</p>
+
+    <div class="links">
+      <a class="btn" href="Recovery_TCST.pdf"><span class="ico">&#128196;</span> Paper (PDF)</a>
+      <a class="btn ghost" href="#video-sim"><span class="ico">&#9654;</span> Videos</a>
+      <a class="btn ghost" href="#code"><span class="ico">&#128187;</span> Code</a>
+      <a class="btn ghost" href="#bibtex"><span class="ico">&#128278;</span> BibTeX</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- Abstract -->
+  <section id="abstract">
+    <div class="wrap">
+      <h2>Abstract</h2>
+      <div class="abstract">
+        <p>
+          This paper presents a safe autonomous recovery framework that integrates
+          disturbance observer-based model predictive control (DOB-MPC) and robust adaptive
+          control barrier functions (RaCBFs) for docking an underactuated unmanned surface
+          vehicle (USV) into a side-mounted cradle on a mothership. Autonomous recovery is
+          challenging because the underactuated USV, driven by a single stern thruster and
+          rudder, must thread a narrow cradle entrance without colliding with the mothership
+          while rejecting persistent wind, wave, and current disturbances. To achieve robust
+          and dynamically feasible tracking, the DOB-MPC embeds a disturbance estimate into the
+          MPC prediction model while respecting the underactuated dynamics and actuator limits.
+          For safe recovery, the operation is divided into an approach and dynamic-positioning
+          phase and a docking phase, and phase-specific RaCBFs&mdash;a side-boundary barrier and a
+          funnel-shaped docking barrier&mdash;are tightened online by the DOB error bound and
+          embedded across the MPC prediction horizon so that safety is enforced over the entire
+          horizon rather than one step ahead. The framework is validated through Monte Carlo
+          simulations and real-world experiments under scaled wave and current disturbances,
+          where it achieves the highest recovery success rate and the fewest safety-constraint
+          violations among the compared baseline controllers.
+        </p>
+      </div>
+
+      <div class="grid">
+        <div class="cell"><div class="num">96%</div><div class="cap">Recovery success rate (100-trial Monte Carlo), highest among all controllers</div></div>
+        <div class="cell"><div class="num">&minus;32.9%</div><div class="cap">DP-tracking RMSE reduction vs. nominal MPC under disturbance</div></div>
+        <div class="cell"><div class="num">0+4</div><div class="cap">Fewest safety-constraint violations (side + docking) across the study</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Method / Fig 2 -->
+  <section id="method">
+    <div class="wrap">
+      <h2>Method Overview</h2>
+      <p class="lead">A two-phase recovery scenario and the safety-aware control architecture.</p>
+      <figure>
+        <div class="media"><img src="assets/fig2_architecture.png" alt="Two-phase recovery scenario and safety-aware control architecture" /></div>
+        <figcaption>
+          <b>(a)</b> Two-phase recovery scenario: Phase&nbsp;1 approaches the mothership side and holds at
+          the DP point under the side barrier &Phi;<sub>side</sub>; Phase&nbsp;2 enters the cradle through the
+          funnel docking corridor under &Phi;<sub>dock,L</sub>, &Phi;<sub>dock,R</sub>.
+          <b>(b)</b> Safety-aware control architecture: a two-phase logic switches the active RaCBFs and the
+          MPC reference, while the DOB-MPC tracks the phase-dependent reference using a disturbance-aware
+          prediction with RaCBF constraints.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Video 1: simulation recovery -->
+  <section id="video-sim">
+    <div class="wrap">
+      <h2>Supplementary Videos</h2>
+      <p class="lead">Animated recovery maneuvers with live safety (CBF) values.</p>
+
+      <div class="stack">
+
+        <figure>
+          <span class="vlabel">Video 1 &middot; Simulation recovery</span>
+          <div class="media">
+            <video controls preload="metadata" poster="assets/recovery_sim_poster.png">
+              <source src="assets/recovery_sim.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <figcaption>
+            Representative full recovery in simulation (cradle-fixed frame). <b>Left:</b> the USV threads the
+            funnel corridor past the mothership side boundary into the cradle, with Phase&nbsp;1 / Phase&nbsp;2
+            distinguished by color. <b>Right:</b> the side barrier h<sub>side</sub>, funnel docking barriers
+            h<sub>dock,L</sub>/h<sub>dock,R</sub>, and heading error evolving in real time&mdash;all barriers stay
+            strictly positive throughout the maneuver.
+          </figcaption>
+        </figure>
+
+        <!-- Video 2: controller comparison (Fig 10) -->
+        <figure id="video-compare">
+          <span class="vlabel">Video 2 &middot; Controller comparison</span>
+          <div class="placeholder">
+            <div class="big">Coming soon &mdash; multi-controller comparison</div>
+            <div>Animated version of Fig.&nbsp;10: DOB-MPC-CBF vs. baseline controllers on the same trials.
+            Details to be finalized.</div>
+          </div>
+        </figure>
+
+        <!-- Video 3: pool experiment side-by-side -->
+        <figure id="video-pool">
+          <span class="vlabel">Video 3 &middot; Pool experiment</span>
+          <div class="placeholder">
+            <div class="big">Coming soon &mdash; pool experiment with live trajectory</div>
+            <div>Overhead pool footage of the physical USV recovery shown side by side with the measured
+            trajectory plot. Details to be finalized.</div>
+          </div>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Code -->
+  <section id="code">
+    <div class="wrap">
+      <h2>Code</h2>
+      <p class="body" style="color:var(--muted)">
+        Simulation and controller implementations (DOB-MPC, RaCBF, and baseline controllers) will be linked here.
+      </p>
+    </div>
+  </section>
+
+  <!-- BibTeX -->
+  <section id="bibtex">
+    <div class="wrap">
+      <h2>BibTeX</h2>
+      <p class="lead">Please update once the paper is published.</p>
+<pre>@article{park2026saferecovery,
+  title   = {Safe USV Recovery Using Disturbance-Aware Predictive Control
+             with Control Barrier Functions},
+  author  = {Park, Kiyong and Lee, Changyu and Kim, Dong-Hoon and
+             Lee, Woong-Ki and Kim, Ji-Wan and Choi, Jun-Hyuk and Kim, Jinhwan},
+  journal = {IEEE Transactions on Control Systems Technology},
+  year    = {2026},
+  note    = {Under review}
+}</pre>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    &copy; 2026 The Authors. Project page for supplementary material.
+  </div>
+</footer>
+
+</body>
+</html>
