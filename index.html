@@ -119,7 +119,6 @@
 
     <div class="links">
       <a class="btn ghost" href="#video-sim"><span class="ico">&#9654;</span> Videos</a>
-      <a class="btn ghost" href="#results"><span class="ico">&#128202;</span> Results</a>
     </div>
   </div>
 </header>
@@ -232,37 +231,6 @@
     </div>
   </section>
 
-  <!-- Results: Fig 9 and Fig 11 -->
-  <section id="results">
-    <div class="wrap">
-      <h2>Monte Carlo Results</h2>
-      <p class="lead">Aggregate recovery performance and safety margins over the 100-trial study.</p>
-
-      <div class="stack">
-
-        <figure>
-          <div class="media"><img src="assets/fig9_mc_summary.png" alt="Monte Carlo summary over 100 trials: success counts, mean completion time, and safety violations" /></div>
-          <figcaption>
-            <b>Fig.&nbsp;9.</b> Monte Carlo summary over 100 trials: <b>(a)</b> number of successful recoveries,
-            <b>(b)</b> mean completion time over the successful trials, and <b>(c)</b> safety violations split into
-            side-boundary (hatched) and docking-corridor (solid) breaches.
-          </figcaption>
-        </figure>
-
-        <figure>
-          <div class="media"><img src="assets/fig11_cbf_dist.png" alt="Distribution of the minimum barrier values over the 100 Monte Carlo trials" /></div>
-          <figcaption>
-            <b>Fig.&nbsp;11.</b> Distribution of the minimum barrier values over the 100 Monte Carlo trials:
-            <b>(a)</b> side barrier h<sub>side</sub> and <b>(b)</b> docking barrier
-            h<sub>dock</sub> = min(h<sub>dock,L</sub>, h<sub>dock,R</sub>). The box spans the interquartile range and
-            the whiskers the full range across trials; values below the red line lie in the unsafe region. The proposed
-            DOB-MPC-CBF shows the tightest distribution and the highest barrier margin among all controllers.
-          </figcaption>
-        </figure>
-
-      </div>
-    </div>
-  </section>
 
 </main>
 
