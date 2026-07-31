@@ -118,10 +118,8 @@
     <p class="corr">&#9993; Corresponding author: Jinhwan Kim</p>
 
     <div class="links">
-      <a class="btn" href="Recovery_TCST.pdf"><span class="ico">&#128196;</span> Paper (PDF)</a>
       <a class="btn ghost" href="#video-sim"><span class="ico">&#9654;</span> Videos</a>
-      <a class="btn ghost" href="#code"><span class="ico">&#128187;</span> Code</a>
-      <a class="btn ghost" href="#bibtex"><span class="ico">&#128278;</span> BibTeX</a>
+      <a class="btn ghost" href="#results"><span class="ico">&#128202;</span> Results</a>
     </div>
   </div>
 </header>
@@ -152,12 +150,6 @@
           where it achieves the highest recovery success rate and the fewest safety-constraint
           violations among the compared baseline controllers.
         </p>
-      </div>
-
-      <div class="grid">
-        <div class="cell"><div class="num">96%</div><div class="cap">Recovery success rate (100-trial Monte Carlo), highest among all controllers</div></div>
-        <div class="cell"><div class="num">&minus;32.9%</div><div class="cap">DP-tracking RMSE reduction vs. nominal MPC under disturbance</div></div>
-        <div class="cell"><div class="num">0+4</div><div class="cap">Fewest safety-constraint violations (side + docking) across the study</div></div>
       </div>
     </div>
   </section>
@@ -240,30 +232,35 @@
     </div>
   </section>
 
-  <!-- Code -->
-  <section id="code">
+  <!-- Results: Fig 9 and Fig 11 -->
+  <section id="results">
     <div class="wrap">
-      <h2>Code</h2>
-      <p class="body" style="color:var(--muted)">
-        Simulation and controller implementations (DOB-MPC, RaCBF, and baseline controllers) will be linked here.
-      </p>
-    </div>
-  </section>
+      <h2>Monte Carlo Results</h2>
+      <p class="lead">Aggregate recovery performance and safety margins over the 100-trial study.</p>
 
-  <!-- BibTeX -->
-  <section id="bibtex">
-    <div class="wrap">
-      <h2>BibTeX</h2>
-      <p class="lead">Please update once the paper is published.</p>
-<pre>@article{park2026saferecovery,
-  title   = {Safe USV Recovery Using Disturbance-Aware Predictive Control
-             with Control Barrier Functions},
-  author  = {Park, Kiyong and Lee, Changyu and Kim, Dong-Hoon and
-             Lee, Woong-Ki and Kim, Ji-Wan and Choi, Jun-Hyuk and Kim, Jinhwan},
-  journal = {IEEE Transactions on Control Systems Technology},
-  year    = {2026},
-  note    = {Under review}
-}</pre>
+      <div class="stack">
+
+        <figure>
+          <div class="media"><img src="assets/fig9_mc_summary.png" alt="Monte Carlo summary over 100 trials: success counts, mean completion time, and safety violations" /></div>
+          <figcaption>
+            <b>Fig.&nbsp;9.</b> Monte Carlo summary over 100 trials: <b>(a)</b> number of successful recoveries,
+            <b>(b)</b> mean completion time over the successful trials, and <b>(c)</b> safety violations split into
+            side-boundary (hatched) and docking-corridor (solid) breaches.
+          </figcaption>
+        </figure>
+
+        <figure>
+          <div class="media"><img src="assets/fig11_cbf_dist.png" alt="Distribution of the minimum barrier values over the 100 Monte Carlo trials" /></div>
+          <figcaption>
+            <b>Fig.&nbsp;11.</b> Distribution of the minimum barrier values over the 100 Monte Carlo trials:
+            <b>(a)</b> side barrier h<sub>side</sub> and <b>(b)</b> docking barrier
+            h<sub>dock</sub> = min(h<sub>dock,L</sub>, h<sub>dock,R</sub>). The box spans the interquartile range and
+            the whiskers the full range across trials; values below the red line lie in the unsafe region. The proposed
+            DOB-MPC-CBF shows the tightest distribution and the highest barrier margin among all controllers.
+          </figcaption>
+        </figure>
+
+      </div>
     </div>
   </section>
 
