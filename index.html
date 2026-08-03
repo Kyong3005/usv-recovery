@@ -73,6 +73,12 @@
   }
   .stack{display:grid; gap:40px}
 
+  /* 2x2 pool-video grid */
+  .vgrid{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+  .vgrid .media{background:#000}
+  .vgrid video{width:100%; height:auto; display:block}
+  @media (max-width:640px){ .vgrid{grid-template-columns:1fr} }
+
   /* Placeholder */
   .placeholder{
     border:1.5px dashed var(--line); border-radius:14px; background:var(--card);
@@ -215,14 +221,38 @@
           </figcaption>
         </figure>
 
-        <!-- Video 3: pool experiment side-by-side -->
+        <!-- Video 3: pool experiment (2x2) -->
         <figure id="video-pool">
           <span class="vlabel">Video 3 &middot; Pool experiment</span>
-          <div class="placeholder">
-            <div class="big">Coming soon &mdash; pool experiment with live trajectory</div>
-            <div>Overhead pool footage of the physical USV recovery shown side by side with the measured
-            trajectory plot. Details to be finalized.</div>
+          <div class="vgrid">
+            <div class="media">
+              <video controls autoplay muted loop playsinline preload="metadata" poster="assets/pool1_poster.jpg">
+                <source src="assets/pool1.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="media">
+              <video controls autoplay muted loop playsinline preload="metadata" poster="assets/pool2_poster.jpg">
+                <source src="assets/pool2.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="media">
+              <video controls autoplay muted loop playsinline preload="metadata" poster="assets/pool3_poster.jpg">
+                <source src="assets/pool3.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="media">
+              <video controls autoplay muted loop playsinline preload="metadata" poster="assets/pool4_poster.jpg">
+                <source src="assets/pool4.mp4" type="video/mp4" />
+              </video>
+            </div>
           </div>
+          <figcaption>
+            Four representative real-world recovery runs in the wave basin under scaled wave and current
+            disturbances. In each clip the underactuated USV (small white hull) autonomously approaches the
+            mothership side and docks into the yellow cradle, threading the funnel entrance without contacting
+            the mothership&mdash;the physical counterpart of the simulated maneuvers above. Clips are muted and
+            loop independently.
+          </figcaption>
         </figure>
 
       </div>
