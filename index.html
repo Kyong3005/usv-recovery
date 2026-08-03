@@ -77,6 +77,9 @@
   .vgrid{display:grid; grid-template-columns:1fr 1fr; gap:14px}
   .vgrid .media{background:#000}
   .vgrid video{width:100%; height:auto; display:block}
+  .vcell{display:flex; flex-direction:column}
+  .vtitle{font-weight:700; color:var(--fg); font-size:.9rem; margin:0 0 7px; letter-spacing:.01em}
+  .vtitle-lg{font-size:1.08rem}
   @media (max-width:640px){ .vgrid{grid-template-columns:1fr} }
 
   /* Placeholder */
@@ -224,31 +227,44 @@
         <!-- Video 3: pool experiment (2x2) -->
         <figure id="video-pool">
           <span class="vlabel">Video 3 &middot; Pool experiment</span>
-          <div class="media" style="margin-bottom:16px">
+          <div class="vtitle vtitle-lg">Scenario 1</div>
+          <div class="media" style="margin-bottom:20px">
             <video controls autoplay muted loop playsinline preload="metadata" poster="assets/pool_composite_poster.jpg">
               <source src="assets/pool_composite.mp4" type="video/mp4" />
             </video>
           </div>
           <div class="vgrid">
-            <div class="media">
-              <video controls autoplay muted loop playsinline preload="metadata" poster="assets/pool1_poster.jpg?v=2">
-                <source src="assets/pool1.mp4?v=2" type="video/mp4" />
-              </video>
+            <div class="vcell">
+              <div class="vtitle">Scenario 2</div>
+              <div class="media">
+                <video controls autoplay muted loop playsinline preload="metadata" poster="assets/pool1_poster.jpg?v=2">
+                  <source src="assets/pool1.mp4?v=2" type="video/mp4" />
+                </video>
+              </div>
             </div>
-            <div class="media">
-              <video controls autoplay muted loop playsinline preload="metadata" poster="assets/pool2_poster.jpg?v=2">
-                <source src="assets/pool2.mp4?v=2" type="video/mp4" />
-              </video>
+            <div class="vcell">
+              <div class="vtitle">Scenario 3</div>
+              <div class="media">
+                <video controls autoplay muted loop playsinline preload="metadata" poster="assets/pool2_poster.jpg?v=2">
+                  <source src="assets/pool2.mp4?v=2" type="video/mp4" />
+                </video>
+              </div>
             </div>
-            <div class="media">
-              <video controls autoplay muted loop playsinline preload="metadata" poster="assets/pool3_poster.jpg?v=2">
-                <source src="assets/pool3.mp4?v=2" type="video/mp4" />
-              </video>
+            <div class="vcell">
+              <div class="vtitle">Scenario 4</div>
+              <div class="media">
+                <video controls autoplay muted loop playsinline preload="metadata" poster="assets/pool3_poster.jpg?v=2">
+                  <source src="assets/pool3.mp4?v=2" type="video/mp4" />
+                </video>
+              </div>
             </div>
-            <div class="media">
-              <video controls autoplay muted loop playsinline preload="metadata" poster="assets/pool4_poster.jpg?v=2">
-                <source src="assets/pool4.mp4?v=2" type="video/mp4" />
-              </video>
+            <div class="vcell">
+              <div class="vtitle">Scenario 5</div>
+              <div class="media">
+                <video controls autoplay muted loop playsinline preload="metadata" poster="assets/pool4_poster.jpg?v=2">
+                  <source src="assets/pool4.mp4?v=2" type="video/mp4" />
+                </video>
+              </div>
             </div>
           </div>
           <figcaption>
