@@ -148,13 +148,13 @@
           and dynamically feasible tracking, the DOB-MPC embeds a disturbance estimate into the
           MPC prediction model while respecting the underactuated dynamics and actuator limits.
           For safe recovery, the operation is divided into an approach and dynamic-positioning
-          phase and a docking phase, and phase-specific RaCBFs&mdash;a side-boundary barrier and a
-          funnel-shaped docking barrier&mdash;are tightened online by the DOB error bound and
+          phase and a docking phase, and phase-specific RaCBFs, a side-boundary barrier and a
+          funnel-shaped docking barrier, are tightened online by the DOB error bound and
           embedded across the MPC prediction horizon so that safety is enforced over the entire
           horizon rather than one step ahead. The framework is validated through Monte Carlo
-          simulations and real-world experiments under scaled wave and current disturbances,
-          where it achieves the highest recovery success rate and the fewest safety-constraint
-          violations among the compared baseline controllers.
+          simulations, where it achieves the highest recovery success rate and the fewest
+          safety-constraint violations among the compared baseline controllers, and through
+          pool experiments demonstrating collision-free recovery on physical hardware.
         </p>
       </div>
     </div>
