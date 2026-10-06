@@ -123,13 +123,87 @@
     <p class="corr">&#9993; Corresponding author: Jinwhan Kim</p>
 
     <div class="links">
-      <a class="btn ghost" href="#video-sim"><span class="ico">&#9654;</span> Videos</a>
+      <a class="btn ghost" href="#experiment"><span class="ico">&#9654;</span> Videos</a>
       <a class="btn ghost" href="#results"><span class="ico">&#128202;</span> Results</a>
     </div>
   </div>
 </header>
 
 <main>
+
+  <!-- Pool experiment: setup (Fig 13) + Video 1 -->
+  <section id="experiment">
+    <div class="wrap">
+      <h2>Pool Experiment</h2>
+      <p class="lead">Model-scale recovery of a 1/15-scale USV in an indoor wave basin under irregular waves and a steady current.</p>
+
+      <div class="stack">
+
+        <figure id="pool-setup">
+          <div class="media"><img src="assets/fig13_pool_env.jpg" alt="Pool experimental setup with wave generator, current generators, USV, and the stabilized cradle on the mothership side" /></div>
+          <figcaption>
+            <b>Experimental setup.</b> The indoor wave basin is equipped with a wave generator and submerged current
+            generators (left). The cradle is mounted on the side of the mothership model through an active
+            stabilizing system (right). The USV is tracked by an overhead optical system through IR LED markers.
+          </figcaption>
+        </figure>
+
+        <!-- Video 1: pool experiment (Run 1 composite + 2x2) -->
+        <figure id="video-pool">
+          <span class="vlabel">Video 1 &middot; Pool experiment</span>
+          <div class="vtitle vtitle-lg">Run 1</div>
+          <div class="media" style="margin-bottom:20px">
+            <video controls autoplay muted loop playsinline preload="metadata" poster="assets/pool_composite_poster.jpg?v=2">
+              <source src="assets/pool_composite.mp4?v=2" type="video/mp4" />
+            </video>
+          </div>
+          <div class="vgrid">
+            <div class="vcell">
+              <div class="vtitle">Run 2</div>
+              <div class="media">
+                <video controls autoplay muted loop playsinline preload="metadata" poster="assets/pool1_poster.jpg?v=2">
+                  <source src="assets/pool1.mp4?v=2" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+            <div class="vcell">
+              <div class="vtitle">Run 3</div>
+              <div class="media">
+                <video controls autoplay muted loop playsinline preload="metadata" poster="assets/pool2_poster.jpg?v=2">
+                  <source src="assets/pool2.mp4?v=2" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+            <div class="vcell">
+              <div class="vtitle">Run 4</div>
+              <div class="media">
+                <video controls autoplay muted loop playsinline preload="metadata" poster="assets/pool3_poster.jpg?v=2">
+                  <source src="assets/pool3.mp4?v=2" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+            <div class="vcell">
+              <div class="vtitle">Run 5</div>
+              <div class="media">
+                <video controls autoplay muted loop playsinline preload="metadata" poster="assets/pool4_poster.jpg?v=2">
+                  <source src="assets/pool4.mp4?v=2" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+          </div>
+          <figcaption>
+            <b>Top:</b> a representative recovery run in the wave basin, shown with the measured trajectory (inset)
+            and the live side and docking CBF values on the right. <b>Below:</b> four additional recovery runs under
+            scaled wave and current disturbances. In each run, the underactuated USV autonomously approaches the
+            mothership side and docks into the cradle, threading the funnel entrance without contacting the
+            mothership. These runs are the physical counterpart of the simulated maneuvers below. All clips are
+            muted and loop independently.
+          </figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
 
   <!-- Abstract -->
   <section id="abstract">
@@ -178,16 +252,16 @@
     </div>
   </section>
 
-  <!-- Video 1: simulation recovery -->
+  <!-- Video 2: simulation recovery -->
   <section id="video-sim">
     <div class="wrap">
-      <h2>Supplementary Videos</h2>
+      <h2>Simulation Videos</h2>
       <p class="lead">Animated recovery maneuvers with live safety (CBF) values.</p>
 
       <div class="stack">
 
         <figure>
-          <span class="vlabel">Video 1 &middot; Simulation recovery</span>
+          <span class="vlabel">Video 2 &middot; Simulation recovery</span>
           <div class="media">
             <video controls preload="metadata" poster="assets/recovery_sim_poster.png">
               <source src="assets/recovery_sim.mp4" type="video/mp4" />
@@ -203,9 +277,9 @@
           </figcaption>
         </figure>
 
-        <!-- Video 2: controller comparison (Fig 10) -->
+        <!-- Video 3: controller comparison (Fig 10) -->
         <figure id="video-compare">
-          <span class="vlabel">Video 2 &middot; Controller comparison</span>
+          <span class="vlabel">Video 3 &middot; Controller comparison</span>
           <div class="media">
             <video controls preload="metadata" poster="assets/fig10_compare_poster.png">
               <source src="assets/fig10_compare.mp4" type="video/mp4" />
@@ -220,59 +294,6 @@
             safety violation. Run&nbsp;1 is easy (all recover); Runs&nbsp;2&ndash;4 each isolate one ingredient
             (the barrier, the tracking layer, the robust-adaptive margin); Run&nbsp;5 is the hardest, where only the
             proposed controller threads the cradle.
-          </figcaption>
-        </figure>
-
-        <!-- Video 3: pool experiment (2x2) -->
-        <figure id="video-pool">
-          <span class="vlabel">Video 3 &middot; Pool experiment</span>
-          <div class="vtitle vtitle-lg">Run 1</div>
-          <div class="media" style="margin-bottom:20px">
-            <video controls autoplay muted loop playsinline preload="metadata" poster="assets/pool_composite_poster.jpg?v=2">
-              <source src="assets/pool_composite.mp4?v=2" type="video/mp4" />
-            </video>
-          </div>
-          <div class="vgrid">
-            <div class="vcell">
-              <div class="vtitle">Run 2</div>
-              <div class="media">
-                <video controls autoplay muted loop playsinline preload="metadata" poster="assets/pool1_poster.jpg?v=2">
-                  <source src="assets/pool1.mp4?v=2" type="video/mp4" />
-                </video>
-              </div>
-            </div>
-            <div class="vcell">
-              <div class="vtitle">Run 3</div>
-              <div class="media">
-                <video controls autoplay muted loop playsinline preload="metadata" poster="assets/pool2_poster.jpg?v=2">
-                  <source src="assets/pool2.mp4?v=2" type="video/mp4" />
-                </video>
-              </div>
-            </div>
-            <div class="vcell">
-              <div class="vtitle">Run 4</div>
-              <div class="media">
-                <video controls autoplay muted loop playsinline preload="metadata" poster="assets/pool3_poster.jpg?v=2">
-                  <source src="assets/pool3.mp4?v=2" type="video/mp4" />
-                </video>
-              </div>
-            </div>
-            <div class="vcell">
-              <div class="vtitle">Run 5</div>
-              <div class="media">
-                <video controls autoplay muted loop playsinline preload="metadata" poster="assets/pool4_poster.jpg?v=2">
-                  <source src="assets/pool4.mp4?v=2" type="video/mp4" />
-                </video>
-              </div>
-            </div>
-          </div>
-          <figcaption>
-            <b>Top:</b> a representative real-world recovery run in the wave basin, shown with the measured
-            trajectory (inset) and the live safety-barrier values&mdash;side and docking CBF&mdash;evolving on the
-            right. <b>Below:</b> four additional recovery runs under scaled wave and current disturbances; in each,
-            the underactuated USV (small white hull) autonomously approaches the mothership side and docks into the
-            yellow cradle, threading the funnel entrance without contacting the mothership&mdash;the physical
-            counterpart of the simulated maneuvers above. All clips are muted and loop independently.
           </figcaption>
         </figure>
 
